@@ -59,7 +59,7 @@ socket = r:TCP_NODELAY=1
 [ingress]
 protocol = pgsql
 accept = 0.0.0.0:5432
-connect = localhost:6000
+connect = 127.0.0.1:6000
 retry = no
 retry = ${PGBOUNCER_CONNECTION_RETRY:-"no"}
 cert = /etc/stunnel/stunnel.pem
@@ -84,7 +84,7 @@ function generateDatabaseConfig()
 [egress_$DB_NAME]
 client = yes
 protocol = pgsql
-accept  = localhost:${DB_LOCAL_PORT:-6432}
+accept  = 127.0.0.1:${DB_LOCAL_PORT:-6432}
 connect = $DB_HOST:$DB_PORT
 retry = ${PGBOUNCER_CONNECTION_RETRY:-"no"}
 
@@ -95,6 +95,6 @@ EOFEOF
 EOFEOF
 
   cat >> /etc/pgbouncer/pgbouncer.ini << EOFEOF
-$DB_NAME= host=localhost port=${DB_LOCAL_PORT:-6432}
+$DB_NAME= host=127.0.0.1 port=${DB_LOCAL_PORT:-6432}
 EOFEOF
 }
