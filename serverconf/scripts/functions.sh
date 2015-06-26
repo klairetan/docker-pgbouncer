@@ -24,16 +24,17 @@ unix_socket_dir = /tmp
 ;   session      - after client disconnects
 ;   transaction  - after transaction finishes
 ;   statement    - after statement finishes
-pool_mode            = ${POOL_MODE}
-server_reset_query   = ${SERVER_RESET_QUERY}
-max_client_conn      = ${PGBOUNCER_MAX_CLIENT_CONN:-100}
-default_pool_size    = ${PGBOUNCER_DEFAULT_POOL_SIZE:-1}
-reserve_pool_size    = ${PGBOUNCER_RESERVE_POOL_SIZE:-1}
-reserve_pool_timeout = ${PGBOUNCER_RESERVE_POOL_TIMEOUT:-5.0}
-log_connections      = ${PGBOUNCER_LOG_CONNECTIONS:-1}
-log_disconnections   = ${PGBOUNCER_LOG_DISCONNECTIONS:-1}
-log_pooler_errors    = ${PGBOUNCER_LOG_POOLER_ERRORS:-1}
-stats_period         = ${PGBOUNCER_STATS_PERIOD:-60}
+pool_mode                 = ${POOL_MODE}
+server_reset_query        = ${SERVER_RESET_QUERY}
+max_client_conn           = ${PGBOUNCER_MAX_CLIENT_CONN:-100}
+default_pool_size         = ${PGBOUNCER_DEFAULT_POOL_SIZE:-1}
+reserve_pool_size         = ${PGBOUNCER_RESERVE_POOL_SIZE:-1}
+reserve_pool_timeout      = ${PGBOUNCER_RESERVE_POOL_TIMEOUT:-5.0}
+log_connections           = ${PGBOUNCER_LOG_CONNECTIONS:-1}
+log_disconnections        = ${PGBOUNCER_LOG_DISCONNECTIONS:-1}
+log_pooler_errors         = ${PGBOUNCER_LOG_POOLER_ERRORS:-1}
+stats_period              = ${PGBOUNCER_STATS_PERIOD:-60}
+ignore_startup_parameters = extra_float_digits
 
 [databases]
 EOFEOF
