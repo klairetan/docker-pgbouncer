@@ -15,7 +15,7 @@ function generatePgBouncerDefaultConfig()
 
   cat >> /etc/pgbouncer/pgbouncer.ini << EOFEOF
 [pgbouncer]
-listen_addr     = localhost
+listen_addr     = 0.0.0.0
 listen_port     = 6000
 auth_type       = md5
 auth_file       = /etc/pgbouncer/users.txt
