@@ -80,21 +80,11 @@ function generateDatabaseConfig()
 
   echo "Setting ${DB_NAME} database config var"
 
-  cat >> /etc/stunnel/stunnel-pgbouncer.conf << EOFEOF
-[egress_$DB_NAME]
-client = yes
-protocol = pgsql
-accept  = 127.0.0.1:${DB_LOCAL_PORT:-6432}
-connect = $DB_HOST:$DB_PORT
-retry = ${PGBOUNCER_CONNECTION_RETRY:-"no"}
-
-EOFEOF
-
   cat >> /etc/pgbouncer/users.txt << EOFEOF
 "$DB_USER" "$DB_MD5_PASS"
 EOFEOF
 
   cat >> /etc/pgbouncer/pgbouncer.ini << EOFEOF
-$DB_NAME= host=127.0.0.1 port=${DB_LOCAL_PORT:-6432}
+$DB_NAME= host=$DB_HOST port=$DB_PORT user=$DB_USER password=$DB_PASS
 EOFEOF
 }
